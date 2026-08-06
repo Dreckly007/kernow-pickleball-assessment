@@ -1,0 +1,983 @@
+{
+  "version": 3,
+  "generated": "2026-08-06",
+  "bands": [
+    [
+      "Improver",
+      "Rallies are beginning to hold together and the basic shot shapes are in place. Points are still decided mostly by unforced errors rather than by tactics."
+    ],
+    [
+      "Intermediate",
+      "Serves, returns and baseline rallies are reliable enough to sustain a point. The soft game and the move forward to the kitchen are the main limits."
+    ],
+    [
+      "Intermediate Plus",
+      "Points can be built deliberately — third shots, dinks and resets work more often than not. Quality drops away when the pace lifts or the rally runs long."
+    ],
+    [
+      "Advanced",
+      "Strong club-level control across the whole court, with clear tactical intent and few loose balls. Holding that level under sustained pressure is the remaining gap."
+    ],
+    [
+      "Advanced Plus",
+      "High club-level play: dependable execution, deliberate targeting and composure when exchanges speed up. Sets the terms of most rallies against club opposition."
+    ]
+  ],
+  "bandsOptional": [
+    [
+      "Newcomer",
+      "Learning the serve, the score and the court. The rating is a starting picture rather than a measure of standard."
+    ]
+  ],
+  "mapping": [
+    [
+      "Newcomer (optional band)",
+      "below 2.0"
+    ],
+    [
+      "Improver",
+      "2.0 – 3.4"
+    ],
+    [
+      "Intermediate",
+      "3.5 – 4.9"
+    ],
+    [
+      "Intermediate Plus",
+      "5.0 – 6.4"
+    ],
+    [
+      "Advanced",
+      "6.5 – 7.9"
+    ],
+    [
+      "Advanced Plus",
+      "8.0 and above"
+    ]
+  ],
+  "profileMessages": [
+    [
+      "P1  Standard",
+      "Your strongest area is {STRONGEST}. Your biggest opportunity is {WEAKEST}."
+    ],
+    [
+      "P2  Two tied at the top",
+      "Your strongest areas are {A} and {B}. Together they are the foundation of your game."
+    ],
+    [
+      "P3  Three or more tied at the top",
+      "Several areas sit level at the top of your profile: {LIST}."
+    ],
+    [
+      "P4  Two or more tied at the bottom",
+      "Two areas are level as your biggest opportunity: {A} and {B}. Take whichever you enjoy practising more."
+    ],
+    [
+      "P5  Balanced (range 1 point or less)",
+      "Your game is evenly balanced, with no single area standing out either way. Progress will come from lifting the whole game together rather than fixing one skill."
+    ],
+    [
+      "P6  No real weakness (lowest score 8+)",
+      "There is no genuine weakness in your profile. {WEAKEST} is simply the area with the most room left, not a gap."
+    ],
+    [
+      "P7  Uneven profile (range 5 or more)",
+      "Your profile is uneven: {STRONGEST} is well ahead of {WEAKEST}. Closing that gap will do more for your rating than improving what you are already good at."
+    ],
+    [
+      "P8  Early stage (highest score 3 or below)",
+      "Everything is at an early stage, so there is no single focus yet. The priorities are the serve, the return, and keeping the ball in play."
+    ],
+    [
+      "P9  Next-band route",
+      "The quickest route to {NEXT_BAND} is improving {WEAKEST} while holding your level in {STRONGEST}."
+    ],
+    [
+      "P10  Skill not assessed",
+      "{SKILL} was not assessed in this session and has been left out of the rating."
+    ],
+    [
+      "P11  Insufficient data",
+      "Fewer than three skills were assessed, so no rating has been produced for this session."
+    ]
+  ],
+  "strengthSummary": [
+    "Your strongest skills already let you influence rallies rather than just react to them.",
+    "There is a solid foundation here, and it is the platform everything else builds on.",
+    "Several parts of your profile already create problems for opponents at your level."
+  ],
+  "closing": [
+    "This rating reflects where your game is today, not where it can go. Bring it back in a few months and expect the picture to have moved.",
+    "One focus area at a time is plenty. Come back for a reassessment once it starts to feel automatic.",
+    "Keep playing to your strengths while you work on the focus area — the fastest progress usually comes from doing both at once."
+  ],
+  "selectionRules": [
+    [
+      "R1  Band",
+      "Take the mean of assessed skills only, to one decimal place, then apply the mapping table. Unassessed skills are excluded from the mean, not scored as zero."
+    ],
+    [
+      "R2  Profile message precedence",
+      "Test in this order and use the first that matches: P11 (fewer than three skills assessed — stop here, no band) → P8 (highest score ≤ 3) → P5 (range ≤ 1) → P6 (lowest score ≥ 8) → P7 (range ≥ 5) → P1. Ties are handled by R3 within whichever message is selected."
+    ],
+    [
+      "R3  Ties",
+      "Two skills tied highest → P2. Three or more tied highest → P3. Two or more tied lowest → P4. If every assessed skill is tied, treat as P5 and skip strongest/weakest naming entirely."
+    ],
+    [
+      "R4  Tier lookup",
+      "Strength lines use four tiers: 1–4, 5–6, 7–8, 9–10. Focus lines use five: 1–2, 3–4, 5–6, 7–8, 9–10. The finer focus tiers matter because advice for a 2 and a 4 are not the same job."
+    ],
+    [
+      "R5  Strength variant rotation",
+      "Index = (assessment number − 1) mod 3, so a returning player sees a different strength line each of three visits. With no history, use index 0. Never randomise: the same report must regenerate identically."
+    ],
+    [
+      "R6  Focus components",
+      "Show all three components — Cue, Drill, In a match — for the weakest skill only. Do not print drills for every skill; the report becomes unreadable and the player stops reading before the part that matters."
+    ],
+    [
+      "R7  No double role",
+      "A skill never receives both a strength line and a focus line in the same report. If the strongest and weakest resolve to the same skill, only one skill was assessed, so R2 sends it to P11."
+    ],
+    [
+      "R8  Focus lines above 8",
+      "A weakest skill of 8+ still uses its own tier's focus lines, which are written as refinement rather than repair. Pair with P6 so the framing matches."
+    ],
+    [
+      "R9  Closing line",
+      "One line from the closing bank, rotated on the same index as R5. P9 is optional and only printed when the player is within 0.5 of the next band threshold."
+    ],
+    [
+      "R10  Descriptors",
+      "Descriptors are assessor-facing and never rotate or vary. Only one descriptor per skill is shown, matched to the score."
+    ]
+  ],
+  "skills": [
+    {
+      "name": "Serve",
+      "criteria": "Consistency, depth, placement, and avoiding easy attackable serves.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Frequent faults and short serves; opponents can step in and attack the return."
+        ],
+        [
+          "3–4  Emerging",
+          "Serves land in play most of the time, but depth varies and placement is incidental rather than chosen."
+        ],
+        [
+          "5–6  Competent",
+          "Serves land deep most of the time, with little variation in pace or target."
+        ],
+        [
+          "7–8  Proficient",
+          "Serves land deep to a chosen target, with occasional changes of pace."
+        ],
+        [
+          "9–10  Advanced",
+          "Serves land deep with deliberate variation in pace, spin and target, making the return awkward."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Of everything assessed, your serve is the shot that repeats most reliably — a useful thing to build from.",
+          "Your serve is currently your most dependable shot, and it is the one shot in pickleball nobody can rush you on.",
+          "The serve is ahead of the rest of your game at the moment. Keep it there while the other areas catch up."
+        ],
+        "5–6": [
+          "Your serve is the steadiest part of your game and gives you a settled start to the point.",
+          "The serve is holding up better than anything else in your profile — you rarely give away free points from the baseline.",
+          "Starting points on your own terms is a strength of yours; the serve is doing its job before the rally begins."
+        ],
+        "7–8": [
+          "Your serve is a real asset — it puts the return under pressure before the rally has begun.",
+          "Depth and placement are strong enough to stop opponents stepping in and attacking the return.",
+          "You start most points with the advantage, which is exactly what a good serve should buy you."
+        ],
+        "9–10": [
+          "Your serve is a weapon at club level — variation in pace and target makes the return genuinely difficult.",
+          "Few players in the club start points as well as you do; the serve regularly forces a weak return.",
+          "The serve is a standout: opponents have to adjust to you rather than the other way round."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Slow the whole motion down and aim for the middle of the opposite service box. In and deep beats ambitious, every time.",
+          "drill": "Serve a basket of 30 with no target, counting only how many land in. Repeat until you clear 25 before thinking about placement.",
+          "match": "Use the same pre-serve routine every single point. Most faults at this stage come from rushing, not from technique."
+        },
+        "3–4": {
+          "cue": "Contact below the waist with a low-to-high swing and a full finish with the paddle up. The finish is what produces depth.",
+          "drill": "Lay a towel across the back third of the service box. Serve 30, counting only those landing on or beyond it.",
+          "match": "One serve, one target: deep and middle. Don't chase the sideline until depth is automatic."
+        },
+        "5–6": {
+          "cue": "Keep the motion identical but change where you aim. Deep to the backhand corner is the highest-value target.",
+          "drill": "Four cones, ten serves each — deep backhand, deep forehand, deep middle, short middle. Note which you hit least.",
+          "match": "Work out which opponent has the weaker backhand in the first two points, then serve there for the rest of the game."
+        },
+        "7–8": {
+          "cue": "Add pace without changing the motion: same swing shape, faster arm, so the change isn't telegraphed.",
+          "drill": "Alternate hard-deep and slow-high-deep serves in pairs, checking both still land within a paddle's length of the baseline.",
+          "match": "Let the score choose the serve — the reliable deep one at 8–8, the aggressive one when you are ahead."
+        },
+        "9–10": {
+          "cue": "Work on disguise. Identical set-up and toss for every serve, so pace and spin are only readable after contact.",
+          "drill": "Serve to a target called by a partner one second before you strike, so the target is set after your set-up.",
+          "match": "Note which serve earned the weakest returns tonight, and keep it for the next time you play those opponents."
+        }
+      }
+    },
+    {
+      "name": "Return",
+      "criteria": "Depth, control, positioning after the return, and taking away the serve advantage.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Returns often land short or miss, letting opponents move straight to the kitchen unchallenged."
+        ],
+        [
+          "3–4  Emerging",
+          "Returns land in play most of the time, but depth varies and the move forward starts late."
+        ],
+        [
+          "5–6  Competent",
+          "Returns land deep fairly often, though recovery towards the kitchen is sometimes late."
+        ],
+        [
+          "7–8  Proficient",
+          "Returns land deep, followed by a prompt and balanced move to the kitchen line."
+        ],
+        [
+          "9–10  Advanced",
+          "Returns take the serve advantage away entirely — deep, well placed, and followed by a quick arrival at the line."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Your return is the most dependable part of your game right now — you get the ball back more often than not.",
+          "Of everything assessed, the return is holding up best. That is a good place to be strongest, because it keeps you in points.",
+          "Returning is currently ahead of the rest of your game, and it is a solid foundation to build the rest around."
+        ],
+        "5–6": [
+          "Your return is the steadiest part of your game and usually gets you into the rally on level terms.",
+          "You take the sting out of most serves, which is the return's main job at this level.",
+          "The return is your most reliable shot — opponents rarely win points off their serve alone."
+        ],
+        "7–8": [
+          "Your return is a real asset — it takes the initiative away from the server.",
+          "Deep returns and a prompt move forward mean you are usually at the line before the third shot arrives.",
+          "You turn the serving team's advantage into a neutral rally, which is exactly what a strong return does."
+        ],
+        "9–10": [
+          "Your return is a weapon — depth, placement and a quick arrival at the line put the serving team under immediate pressure.",
+          "Opponents get very little from their serve against you; the return regularly forces a difficult third shot.",
+          "The return is a standout part of your game and a main reason you win points on the opponents' serve."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Take the ball late and hit it high and long. A deep looping return is far better than a flat one into the net.",
+          "drill": "Have a partner serve while you return 20, counting only those landing past the kitchen line.",
+          "match": "Aim two metres inside the baseline, not at it. Depth first — nothing else about the return matters yet."
+        },
+        "3–4": {
+          "cue": "Start a step behind the baseline so you are moving forward into contact rather than backing up.",
+          "drill": "Towel across the back third of the court: 20 returns, counting only those landing on or beyond it.",
+          "match": "Split the return into two jobs — hit it deep, then walk in. Don't try to do both at once."
+        },
+        "5–6": {
+          "cue": "Follow the direction of your own return as you move in, so you arrive covering the right half of the court.",
+          "drill": "Return and sprint: partner serves, you return deep and touch the kitchen line before they hit the third shot.",
+          "match": "Commit to moving in the moment the ball leaves your paddle. Hesitating mid-court is worse than either option."
+        },
+        "7–8": {
+          "cue": "Choose the target before the serve arrives — deep to the weaker backhand, or wide to open up the middle.",
+          "drill": "Call your target out loud before each return, then check whether you hit it. Aim for seven in ten.",
+          "match": "Return to whichever opponent has the weaker third shot, not simply the one who served."
+        },
+        "9–10": {
+          "cue": "Vary depth and pace deliberately. A slower, higher return buys more time to reach the line than a driven one.",
+          "drill": "Alternate a driven return and a high deep return in pairs, checking you still reach the line in time on both.",
+          "match": "Use the return to dictate their third shot — take the drive away by giving them a low, deep ball."
+        }
+      }
+    },
+    {
+      "name": "Groundstrokes",
+      "criteria": "Forehand and backhand control, depth, direction and shot choice from the baseline and mid-court.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Unforced errors arrive early in rallies, with depth and direction varying shot to shot."
+        ],
+        [
+          "3–4  Emerging",
+          "Short rallies hold together, but depth and placement drift as the rally goes on."
+        ],
+        [
+          "5–6  Competent",
+          "Rallies are sustained comfortably, with shot quality dropping when the ball comes back faster or wider."
+        ],
+        [
+          "7–8  Proficient",
+          "Rallies are controlled with dependable depth and direction, and sensible shot choices."
+        ],
+        [
+          "9–10  Advanced",
+          "Rallies are dictated from the back — depth, direction and shot choice are all purposeful, with very few loose balls."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Your groundstrokes are the most reliable part of your game — rallies hold together as long as they stay at the back.",
+          "Of everything assessed, hitting from the baseline is where you look most comfortable.",
+          "Groundstrokes are currently your strongest area, which means you can keep points going while the rest develops."
+        ],
+        "5–6": [
+          "Your groundstrokes are the most solid part of your game and keep you in neutral rallies.",
+          "You are comfortable trading shots from the back and rarely miss the routine ball.",
+          "Baseline rallies are where your game holds up best — you make opponents play extra shots."
+        ],
+        "7–8": [
+          "Your groundstrokes are a real asset — you can control a rally from the back of the court.",
+          "Depth and direction are dependable enough that opponents rarely get a free ball from you.",
+          "You can hold a baseline rally as long as it takes and still choose where the ball goes."
+        ],
+        "9–10": [
+          "Your groundstrokes are a weapon — you dictate baseline rallies rather than survive them.",
+          "Very few loose balls come off your paddle from the back, and you can move opponents at will.",
+          "Baseline control is a standout part of your game and lets you shape the point before you reach the kitchen."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Aim high over the net, around a metre above it. Most errors at this stage are balls that never crossed.",
+          "drill": "Rally cooperatively from the baseline and count to ten without an error. Restart at one on every miss.",
+          "match": "One target: deep and down the middle. The middle gives you the most margin on both sides."
+        },
+        "3–4": {
+          "cue": "Turn your shoulders early and take the paddle back before the ball bounces, so you are never rushed.",
+          "drill": "Cross-court rally for two minutes, then down-the-line for two. Count errors in each — the higher number is your weaker pattern.",
+          "match": "Play the shot the ball allows. Moved wide? Hit high and deep to the middle and reset."
+        },
+        "5–6": {
+          "cue": "Recover towards the middle after every shot, so the next ball isn't taken on the stretch.",
+          "drill": "Partner feeds alternately wide and to the middle. Hit ten in a row deep without losing depth on the wide ball.",
+          "match": "Notice when you are being moved. The moment you're pulled off court, take the safe deep ball rather than matching their shot."
+        },
+        "7–8": {
+          "cue": "Use height and spin to control depth. A topspin drive that dips is safer and harder to answer than a flat one.",
+          "drill": "Alternate a heavy drive and a high deep ball to the same target, checking both land inside the back third.",
+          "match": "Use groundstrokes to set up the third shot, not to win the point. The aim is a weak ball back, not a winner."
+        },
+        "9–10": {
+          "cue": "Refine disguise — the same preparation for the drive and the drop takes away their read.",
+          "drill": "Partner calls 'drive' or 'drop' as the ball bounces, so you decide after your preparation has started.",
+          "match": "Look for patterns: which opponent gives the weaker ball under repeated pressure, then go there twice in a row."
+        }
+      }
+    },
+    {
+      "name": "Third Shot",
+      "criteria": "Choosing and executing the drop, drive or hybrid third shot, including under pressure.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Third shots often find the net, sail long, or float high enough to be attacked."
+        ],
+        [
+          "3–4  Emerging",
+          "Drops and drives come off occasionally, but the choice is often made too late to commit to properly."
+        ],
+        [
+          "5–6  Competent",
+          "Drops and drives are executed well from comfortable positions; quality drops when the return is deep or wide."
+        ],
+        [
+          "7–8  Proficient",
+          "The appropriate third shot is chosen and executed reliably, starting a controlled move forward."
+        ],
+        [
+          "9–10  Advanced",
+          "The third shot is matched to the return and the opponents, creating a clean transition to the kitchen almost every time."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Your third shot is the most reliable part of your game — you get more of them into play than most at your level.",
+          "Of everything assessed, the third shot is where you look most settled. That is unusual and worth protecting.",
+          "The third shot is currently your strongest area, and it is the shot that gets you off the baseline."
+        ],
+        "5–6": [
+          "Your third shot is the most reliable part of your game and gives you a route forward.",
+          "You get the third ball into play consistently, which is what lets your team leave the baseline.",
+          "The third shot is holding up better than the rest of your game — and it is doing the hardest job on the court."
+        ],
+        "7–8": [
+          "Your third shot is a real asset — it turns your serve into a genuine chance to take the kitchen.",
+          "You choose between drop and drive well, and execute the choice reliably enough to move forward with confidence.",
+          "The transition from baseline to kitchen is a strength, and that is the single biggest divider at club level."
+        ],
+        "9–10": [
+          "Your third shot is a weapon — you match the shot to the return and arrive at the kitchen almost every time.",
+          "Very few teams stop your transition. The third shot is the standout part of your game.",
+          "Third-shot quality wins your side the kitchen on nearly every serve, which is the hardest advantage in pickleball to earn."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Swing from the shoulder with a still wrist and lift the ball. The drop is a push, not a stroke.",
+          "drill": "From mid-court, drop 20 fed balls into the kitchen. Move back a metre only once 15 of 20 land in.",
+          "match": "If the drop feels beyond you today, drive deep and stay back. A committed drive beats a half-hearted drop."
+        },
+        "3–4": {
+          "cue": "Contact the ball below your waist and out in front with an open paddle face. Low contact is what makes the arc.",
+          "drill": "Three-zone drop: ten from the kitchen line, ten from mid-court, ten from the baseline, progressing only when eight land.",
+          "match": "Decide drop or drive while the return is still travelling, not as it bounces. Late decisions produce the floaters."
+        },
+        "5–6": {
+          "cue": "Take pace off a deep return by letting the ball drop lower before contact — more time, better arc.",
+          "drill": "Partner alternates a short and a deep return; play the appropriate third shot to each, ten times through.",
+          "match": "Match the shot to the return: deep return, drop and walk in; short return, drive at their feet."
+        },
+        "7–8": {
+          "cue": "Aim the drop at their feet on the side you served to, so the fourth ball comes back from a low position.",
+          "drill": "Target drops: cones just inside the kitchen line on both sides, alternating targets, 20 reps.",
+          "match": "Use the drive to set up a fifth-shot drop rather than expecting the third shot to do everything."
+        },
+        "9–10": {
+          "cue": "Work on disguise between drop and drive from identical preparation, so opponents cannot creep in.",
+          "drill": "Partner calls the shot type at the last moment; execute without changing your set-up.",
+          "match": "Read their court position before committing. If they are late to the line, drive at the gap instead of dropping."
+        }
+      }
+    },
+    {
+      "name": "Dinking",
+      "criteria": "Soft-game control, patience, placement, cross-court control, and resetting difficult balls.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Dinks regularly pop up, land long, or end the rally before it develops."
+        ],
+        [
+          "3–4  Emerging",
+          "Short dink exchanges hold together, though difficult balls are rarely reset successfully."
+        ],
+        [
+          "5–6  Competent",
+          "Dink rallies are sustained, with limited ability to change pace or angle, or to reset a ball taken out of the air."
+        ],
+        [
+          "7–8  Proficient",
+          "Dink rallies are controlled with good placement, and attacking chances are created regularly."
+        ],
+        [
+          "9–10  Advanced",
+          "The soft game is controlled with patience and precision, resets are dependable, and openings are manufactured rather than waited for."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Your dinking is the most controlled part of your game — you can keep the ball soft when others swing at it.",
+          "Of everything assessed, the soft game is where you look most patient, and patience is hard to teach.",
+          "Dinking is currently your strongest area, which suits the way most club points are actually decided."
+        ],
+        "5–6": [
+          "Your dinking is the most controlled part of your game and lets you settle into soft exchanges.",
+          "You can hold a dink rally without forcing it, which already puts you ahead of most players at this level.",
+          "The soft game is where your game holds up best — you rarely hand over a free attackable ball."
+        ],
+        "7–8": [
+          "Your dinking is a real asset — you win patience battles and create your own openings.",
+          "Placement in the soft game is strong enough to move opponents around and force the pop-up.",
+          "You are comfortable in long kitchen exchanges, which is where club matches are decided."
+        ],
+        "9–10": [
+          "Your dinking is a weapon — precision, patience and dependable resets mean you manufacture openings rather than wait for them.",
+          "Opponents very rarely out-patient you, and you can create an attackable ball almost at will.",
+          "The soft game is a standout part of your game and the main reason you control kitchen rallies."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Bend your knees and push the ball with a still wrist. Height is the whole game — clear the net by no more than a paddle's width.",
+          "drill": "Straight-ahead dink rally, counting to ten without a pop-up. Restart at one on every error.",
+          "match": "Any ball below net height is a dink. No exceptions until it becomes automatic."
+        },
+        "3–4": {
+          "cue": "Contact the ball in front of your body, not beside your hip. Contact behind you is what makes it pop up.",
+          "drill": "Dink into a target box in the kitchen corner, 20 reps each side, counting how many land inside.",
+          "match": "When a dink arrives fast, let it bounce and take it low. Taking it out of the air is what floats it."
+        },
+        "5–6": {
+          "cue": "Change the ball's landing point rather than its pace — wide, middle, at the feet — so opponents have to move.",
+          "drill": "Cross-court dinks for two minutes, then straight-ahead for two. The cross-court error count is usually the higher one.",
+          "match": "Add one deliberate wide dink per rally to pull them off the line, then aim at the space they leave."
+        },
+        "7–8": {
+          "cue": "Work the reset: soft hands on the ball taken out of the air, absorbing pace rather than blocking it.",
+          "drill": "Partner speeds the ball up at random during a dink rally; your only job is to reset every one back into the kitchen.",
+          "match": "Choose one opponent and dink at their feet repeatedly, rather than moving the ball around evenly."
+        },
+        "9–10": {
+          "cue": "Refine the dink that sets up the speed-up — slightly higher, at the shoulder, inviting the mistake you are ready for.",
+          "drill": "Dink until a ball comes above net height, attack it, reset the counter, and start again. Twenty full sequences.",
+          "match": "Track which dink pattern produces their pop-up, and return to it when the score is tight."
+        }
+      }
+    },
+    {
+      "name": "Volleys",
+      "criteria": "Hand speed, punch and block volleys, and readiness at the net.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Volleys pop up or miss regularly, and fast balls arrive before the paddle is ready."
+        ],
+        [
+          "3–4  Emerging",
+          "Routine volleys are handled, but quick exchanges usually break down within a shot or two."
+        ],
+        [
+          "5–6  Competent",
+          "Routine net exchanges are controlled, with errors rising as the speed increases."
+        ],
+        [
+          "7–8  Proficient",
+          "Fast exchanges are handled with dependable blocks, punches and directional volleys."
+        ],
+        [
+          "9–10  Advanced",
+          "Net exchanges are dominated — control, placement and anticipation all hold up at full speed."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Your volleys are the most reliable part of your game — you get a paddle on the fast ball more often than most.",
+          "Of everything assessed, reactions at the net are where you look most natural.",
+          "Volleying is currently your strongest area, which will serve you well as you spend more time at the line."
+        ],
+        "5–6": [
+          "Your volleys are the strongest part of your game and let you hold your ground at the kitchen line.",
+          "You handle the routine fast ball cleanly, which keeps you in exchanges others lose immediately.",
+          "Hands at the net are where your game holds up best."
+        ],
+        "7–8": [
+          "Your volleys are a real asset — you win most fast exchanges at the net.",
+          "Blocks, punches and directional volleys are dependable enough that opponents gain little by speeding the ball up.",
+          "Your hands are quick enough that a speed-up at you is usually a mistake."
+        ],
+        "9–10": [
+          "Your volleys are a weapon — control, placement and anticipation all hold up at full speed.",
+          "You dominate hands battles, so opponents have to find another way to win points.",
+          "Speed at the net is a standout part of your game and the reason most fast exchanges end in your favour."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Paddle up and out in front at chest height before the ball arrives. Most misses are a paddle that started too low.",
+          "drill": "Partner feeds gentle volleys from six feet away; block 20 back without swinging at any of them.",
+          "match": "Don't swing at the net. A firm, still paddle returns more balls than a big motion."
+        },
+        "3–4": {
+          "cue": "Meet the ball with a short punch from the shoulder and no backswing. The ball's own pace does the work.",
+          "drill": "Two players at the kitchen line volleying to each other at controlled pace, counting to fifteen without an error.",
+          "match": "When the ball speeds up, aim only at your opponent's chest. Placement can come later."
+        },
+        "5–6": {
+          "cue": "Block the hard ball down and short rather than returning pace with pace. A soft block ends the firefight in your favour.",
+          "drill": "Partner drives hard at you from mid-court; block 20 into the kitchen rather than back at them.",
+          "match": "Decide before the point that you will block, not counter-attack, on anything above shoulder height."
+        },
+        "7–8": {
+          "cue": "Take the ball earlier and further in front to cut their reaction time. Position beats hand speed.",
+          "drill": "Hands battles from the kitchen line, ten points at a time, with a rule that every ball is aimed at feet or the middle seam.",
+          "match": "Aim at the middle seam when both opponents are at the line — it is the hardest ball for a pair to answer."
+        },
+        "9–10": {
+          "cue": "Refine the counter: rather than blocking, redirect the speed-up at the opponent who did not hit it.",
+          "drill": "Three-player hands drill, two against one at the line, forcing target choices under real pressure.",
+          "match": "Watch which opponent starts the firefights and be ready to counter their first ball rather than react to it."
+        }
+      }
+    },
+    {
+      "name": "Attacking",
+      "criteria": "Recognising attackable balls, speed-ups, put-aways, and controlled aggression.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Attackable balls go unnoticed, or attacks are launched from balls that are too low to hit."
+        ],
+        [
+          "3–4  Emerging",
+          "Attackable balls are spotted, but the attack itself misses about as often as it lands."
+        ],
+        [
+          "5–6  Competent",
+          "Attacks land in play a fair share of the time, with placement varying and the follow-up ball sometimes unexpected."
+        ],
+        [
+          "7–8  Proficient",
+          "High-percentage attacks are chosen and placed with control, and the reply is anticipated."
+        ],
+        [
+          "9–10  Advanced",
+          "Openings are recognised early and converted with intelligent placement, with the next ball already covered."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Your willingness to attack is the standout part of your game. The intent is there ahead of the technique, which is the right way round.",
+          "Of everything assessed, spotting the chance to take a point on is where you look most instinctive.",
+          "Attacking is currently your strongest area. It will become a weapon once the rest of your game creates more chances to use it."
+        ],
+        "5–6": [
+          "Attacking intent is the standout part of your game — you look for the chance to take the point on.",
+          "You recognise the attackable ball and go after it, which is more than many players at this level manage.",
+          "Your best area is putting pressure on the ball that sits up."
+        ],
+        "7–8": [
+          "Your attacking is a real asset — you spot openings and finish points cleanly.",
+          "You pick high-percentage attacks and place them well, which is what separates aggression from recklessness.",
+          "The attackable ball rarely survives against you."
+        ],
+        "9–10": [
+          "Your attacking is a weapon — openings are recognised early, placed intelligently, and the reply is already covered.",
+          "You convert almost every chance you are given, so opponents cannot afford a single loose ball against you.",
+          "Finishing is a standout part of your game and the reason your points end when you want them to."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Only attack a ball you can contact above net height and in front of your body. Everything else is a dink.",
+          "drill": "Partner feeds a mix of low and high balls; call 'attack' or 'dink' out loud before hitting each one.",
+          "match": "If in doubt, don't. One extra dink costs nothing; a low ball driven into the net costs the point."
+        },
+        "3–4": {
+          "cue": "Drive the attack down at a body, not flat at a paddle. The downward angle is what makes it unanswerable.",
+          "drill": "Feed yourself high balls at the kitchen line and attack 20 at a target on the opponent's right hip.",
+          "match": "Pick your target before you speed the ball up — usually the nearest opponent's right hip — and commit to it."
+        },
+        "5–6": {
+          "cue": "Attack through the ball with control rather than swinging harder. Placement wins more points than pace at club level.",
+          "drill": "Dink until a ball comes up, attack it, then immediately reset the counter. Fifteen times — the counter is the part being trained.",
+          "match": "Expect the ball back. Most attacks that fail at this level fail on the second ball, not the first."
+        },
+        "7–8": {
+          "cue": "Aim at the feet or the middle seam rather than the body. Both are harder to counter cleanly.",
+          "drill": "Attack sequences: speed up, take the counter, finish the third ball. Twenty full sequences.",
+          "match": "Attack the weaker opponent, even when the better ball comes to you from the stronger one."
+        },
+        "9–10": {
+          "cue": "Build attacks in pairs — the first speed-up creates the ball, the second finishes it.",
+          "drill": "Two-ball finishing: partner counters every attack once, so you can only score on the follow-up.",
+          "match": "Let the score choose the marginal attack. It is worth it at 5–2 and not at 9–9."
+        }
+      }
+    },
+    {
+      "name": "Defence",
+      "criteria": "Resetting hard shots, blocking, scrambling, and composure under pressure.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Hard-hit balls are difficult to return at all, and the rally is usually lost once pace is applied."
+        ],
+        [
+          "3–4  Emerging",
+          "Some attacks are blocked or reset, though the ball often comes back high enough to be attacked again."
+        ],
+        [
+          "5–6  Competent",
+          "Many attacks are reset successfully, with quality dropping when the pressure continues over several shots."
+        ],
+        [
+          "7–8  Proficient",
+          "Attacks are regularly neutralised with controlled resets, and neutral position is recovered."
+        ],
+        [
+          "9–10  Advanced",
+          "Sustained pressure is absorbed through high-quality resets, with court position maintained throughout."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Your defence is the most reliable part of your game — you stay in rallies even when the pace goes up.",
+          "Of everything assessed, getting the ball back under pressure is where you look most stubborn, and that wins matches.",
+          "Defending is currently your strongest area, and it buys you the time to develop everything else."
+        ],
+        "5–6": [
+          "Your defence is the strongest part of your game — you stay in rallies that others would lose.",
+          "You get a lot of hard-hit balls back, which makes opponents play more shots than they want to.",
+          "Absorbing pressure is where your game holds up best."
+        ],
+        "7–8": [
+          "Your defence is a real asset — pace alone will not get points past you.",
+          "Controlled resets regularly turn an opponent's attack back into a neutral rally.",
+          "You are hard to finish against, which pushes opponents into lower-percentage attempts."
+        ],
+        "9–10": [
+          "Your defence is a weapon — sustained pressure is absorbed and returned as a neutral ball, with your position intact.",
+          "Opponents cannot win points simply by hitting harder, which removes their most common plan.",
+          "Resetting under pressure is a standout part of your game and the reason long rallies tend to go your way."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Loosen your grip and let the paddle give a little on contact. A tight grip sends the ball straight back at them.",
+          "drill": "Partner drives from mid-court at controlled pace; block 20 back, aiming only to keep them in the court.",
+          "match": "Get the paddle in front of the ball and accept a weak return. Staying in the rally is the whole job."
+        },
+        "3–4": {
+          "cue": "Take hard balls low, paddle out in front and knees bent, so the ball drops rather than flies.",
+          "drill": "Reset drill: partner attacks from the kitchen while you reset from mid-court into the kitchen, 20 reps.",
+          "match": "Under pressure, aim for the kitchen, not the baseline. Short and soft ends the attack; deep and hard extends it."
+        },
+        "5–6": {
+          "cue": "Stay low through several shots instead of standing up after the first reset. Most breakdowns come on the second or third ball.",
+          "drill": "Continuous pressure: partner attacks for 30 seconds while you reset every ball. Count how many rounds you last.",
+          "match": "Commit to three resets in a row before thinking about attacking back. Patience under fire is the skill."
+        },
+        "7–8": {
+          "cue": "Reset to a target rather than just softly — their feet, or the middle — so the next ball is also awkward for them.",
+          "drill": "Two against one: both opponents attack, you reset, with every reset required to land inside the kitchen.",
+          "match": "Look for the moment the pressure drops. One good reset usually earns a neutral ball you can take over."
+        },
+        "9–10": {
+          "cue": "Refine the move from defence to neutral — the reset that lands at their feet is the one that lets you step in and take the line.",
+          "drill": "Defend, reset, advance: reset from mid-court and only move forward when your reset lands below net height.",
+          "match": "Bait the attack deliberately when you trust the reset. It is a way of controlling the rally, not just surviving it."
+        }
+      }
+    },
+    {
+      "name": "Movement",
+      "criteria": "Court coverage, recovery, balance, partner spacing, and transition movement.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Recovery after each shot is slow, and gaps open up between partners."
+        ],
+        [
+          "3–4  Emerging",
+          "The court is covered reasonably well, though the move through the transition zone arrives late."
+        ],
+        [
+          "5–6  Competent",
+          "Movement is efficient in normal rallies, with position or balance breaking down when stretched."
+        ],
+        [
+          "7–8  Proficient",
+          "Recovery, court coverage and spacing with a partner are maintained throughout the rally."
+        ],
+        [
+          "9–10  Advanced",
+          "Movement is efficient and anticipated throughout, with recovery and partner positioning holding up under pressure."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Your movement is the most reliable part of your game — you get to balls many players wouldn't reach.",
+          "Of everything assessed, covering the court is where you look strongest, and that is a real advantage while the shots develop.",
+          "Movement is currently your strongest area, and good court coverage makes every other skill easier to use."
+        ],
+        "5–6": [
+          "Your movement is the strongest part of your game — you reach more balls than most at your level.",
+          "You cover the court well and rarely lose points simply by not getting there.",
+          "Court coverage is where your game holds up best."
+        ],
+        "7–8": [
+          "Your movement is a real asset — you arrive balanced and hold good position with your partner.",
+          "Recovery between shots is strong enough that you are rarely hitting on the stretch.",
+          "You and your partner move as a unit, which closes the gaps most club pairs leave open."
+        ],
+        "9–10": [
+          "Your movement is a weapon — anticipation, recovery and partner positioning all hold up under pressure.",
+          "You are almost never out of position, so opponents have to hit through you rather than around you.",
+          "Court movement is a standout part of your game and the foundation of everything else you do well."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Stop moving and split your feet before your opponent strikes the ball. Hitting while walking causes most errors.",
+          "drill": "Shadow movement with no ball: baseline to kitchen and back, stopping and splitting each time a partner calls 'hit'.",
+          "match": "After every shot, take two steps back towards the middle. Recovery is a habit, not a reaction."
+        },
+        "3–4": {
+          "cue": "Move through the transition zone in two or three short stages, splitting each time, rather than one long run.",
+          "drill": "Transition ladder: partner feeds from the baseline while you advance a metre at a time, resetting each ball before moving again.",
+          "match": "Never stand still in mid-court. Either get to the line or get back — the middle is the worst place to be caught."
+        },
+        "5–6": {
+          "cue": "Recover to the middle of the space you and your partner are responsible for, not to where you last hit from.",
+          "drill": "Side-to-side dinking with a partner deliberately moving you wide, checking you return to position between every ball.",
+          "match": "When pulled wide, hit the ball that buys you time to get back rather than the ball you would like to hit."
+        },
+        "7–8": {
+          "cue": "Move with your partner as a pair. When they shift wide, you shift with them to keep the middle closed.",
+          "drill": "Two-player shifting drill: a feeder moves the ball wide to alternate sides while both players slide together.",
+          "match": "Talk about the middle. Agree who takes it before the game, then shift together rather than reaching separately."
+        },
+        "9–10": {
+          "cue": "Work on anticipation rather than speed — read the paddle face and start moving as they commit.",
+          "drill": "Anticipation drill: partner plays a set pattern with one random change, and you move on the read rather than the ball.",
+          "match": "Use your movement to bluff — start shifting early to show a gap you fully intend to close."
+        }
+      }
+    },
+    {
+      "name": "Strategy",
+      "criteria": "Shot selection, patience, target choice, partner awareness, and tactical decisions.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Shots are chosen ball by ball, with little attention to position, score or opponents."
+        ],
+        [
+          "3–4  Emerging",
+          "Tactical chances are noticed, though the decision often comes after the ball has been hit."
+        ],
+        [
+          "5–6  Competent",
+          "Appropriate shots are generally chosen, with decisions becoming rushed as pressure builds."
+        ],
+        [
+          "7–8  Proficient",
+          "High-percentage decisions are made regularly, with adjustments for different opponents."
+        ],
+        [
+          "9–10  Advanced",
+          "Play is shaped consciously throughout — patterns are read, weaknesses targeted, and tactics adjusted as the match develops."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Your decision-making is the most reliable part of your game — you pick a sensible shot even while the technique is developing.",
+          "Of everything assessed, knowing what to do is where you look strongest, and that is the harder half to learn.",
+          "Strategy is currently your best area. The technique will catch up to the plan."
+        ],
+        "5–6": [
+          "Your decision-making is the strongest part of your game — you play the percentages well for your level.",
+          "You choose the right shot more often than not, which keeps errors down without needing to take risks.",
+          "Tactical sense is where your game holds up best."
+        ],
+        "7–8": [
+          "Your tactical awareness is a real asset — you find opponents' weaknesses and use them.",
+          "You adapt to different opponents rather than playing the same way against everyone.",
+          "Good decisions under pressure are a strength, and they make your partner's job easier too."
+        ],
+        "9–10": [
+          "Your strategy is a weapon — you read patterns, target weaknesses and adjust as the match goes on.",
+          "You shape matches deliberately, which is rare at club level and hard to play against.",
+          "Tactical control is a standout part of your game and often the deciding factor in close matches."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "One rule per point: get to the kitchen line, and keep the ball low. Everything else can wait.",
+          "drill": "Play games where a point can only be won if both partners have reached the kitchen line.",
+          "match": "Before each point, say your one intention to yourself. A simple plan beats no plan."
+        },
+        "3–4": {
+          "cue": "Decide your shot before the ball arrives, not as you hit it. Late decisions produce the worst shots.",
+          "drill": "Call your intended target out loud before every shot in a cooperative rally, then check whether you hit it.",
+          "match": "Keep the ball to the middle when unsure. The middle is the lowest-risk target in doubles."
+        },
+        "5–6": {
+          "cue": "Notice which pattern is winning you points and repeat it, rather than looking for something new each rally.",
+          "drill": "Play points with a fixed pattern — every third shot as a drop, for instance — so sticking to a plan becomes the habit.",
+          "match": "At 8–8, play your highest-percentage pattern, not your most ambitious one."
+        },
+        "7–8": {
+          "cue": "Identify the weaker opponent and the weaker side within the first three points, then commit to that target.",
+          "drill": "Scouting games: name one weakness you will target before each game, then count the points you win doing it.",
+          "match": "Return to your winning pattern under pressure rather than changing it. Opponents usually expect the change."
+        },
+        "9–10": {
+          "cue": "Work on the second-order plan: what you do once opponents have adapted to your first one.",
+          "drill": "Play sets where you must change tactical approach every four points and still win the majority.",
+          "match": "Track the pattern of the score, not just the score. Work out which of their patterns is costing you points, and remove that first."
+        }
+      }
+    },
+    {
+      "name": "Match Reliability",
+      "criteria": "How well the level holds up across a full match — score pressure, long rallies, fatigue and momentum swings. Scored on how much the game changes, not on shot quality itself, which the ten skills above already cover.",
+      "descriptors": [
+        [
+          "1–2  Developing",
+          "Level varies widely from point to point, and long rallies usually end in an error."
+        ],
+        [
+          "3–4  Emerging",
+          "Level holds through short rallies and early games, then drops noticeably as the match goes on."
+        ],
+        [
+          "5–6  Competent",
+          "Level holds through routine play, dipping in tight scorelines, long rallies, or late in a session."
+        ],
+        [
+          "7–8  Proficient",
+          "Level holds through most of a match, with only brief dips at the tightest moments."
+        ],
+        [
+          "9–10  Advanced",
+          "Level holds from the first point to the last — pressure, long rallies and fatigue barely change execution or decisions."
+        ]
+      ],
+      "strength": {
+        "1–4": [
+          "Holding your level is the most reliable part of your game — your standard doesn't collapse when things get difficult.",
+          "Of everything assessed, staying steady is where you look strongest, and that is a genuine competitive advantage.",
+          "Reliability is currently your best area, which means gains in the other skills will actually show up in matches."
+        ],
+        "5–6": [
+          "Reliability is the strongest part of your game — opponents have to earn their points against you.",
+          "Your level holds through routine play, and you don't hand over runs of cheap points.",
+          "Steadiness is where your game holds up best."
+        ],
+        "7–8": [
+          "Your reliability is a real asset — your level barely moves whatever the score.",
+          "You play the same way at 9–9 as at 2–2, which is rare and very hard to play against.",
+          "Opponents cannot wait for you to break down, so they have to win their points outright."
+        ],
+        "9–10": [
+          "Your reliability is a weapon — pressure, long rallies and fatigue barely change your execution or your decisions.",
+          "Your level in the last point is the same as in the first, and that decides most close club matches.",
+          "Holding quality across a full match is a standout part of your game."
+        ]
+      },
+      "focus": {
+        "1–2": {
+          "cue": "Aim to finish rallies rather than win them. One more ball back is worth more than one big shot.",
+          "drill": "Cooperative rally targets: reach ten shots, then fifteen, then twenty, counting only completed rallies.",
+          "match": "Take the highest-percentage shot every time, even when a winner is available. Reliability is built by choice, not luck."
+        },
+        "3–4": {
+          "cue": "Slow your breathing between points and reset your feet before serving or receiving.",
+          "drill": "Play games to eleven while tracking your own unforced errors by half — first six points against the rest.",
+          "match": "Notice the point where your level drops, usually mid-game, and take a longer pause between points from there on."
+        },
+        "5–6": {
+          "cue": "Build a fixed between-point routine — same breath, same paddle tap, same first thought — so tight moments feel routine.",
+          "drill": "Play from 7–7 only. Start every game at the pressure end until it stops feeling like the pressure end.",
+          "match": "At 9–9, choose the shot you would play at 2–2. The situation changed; the right shot didn't."
+        },
+        "7–8": {
+          "cue": "Guard the first two points after a lost game. That is where most small dips actually appear.",
+          "drill": "Play the last game of the night as though it were the first, and track your errors in it.",
+          "match": "Notice fatigue early and simplify rather than pushing — shorter points, higher-percentage targets."
+        },
+        "9–10": {
+          "cue": "Refine recovery between points and games so physical condition never becomes the variable.",
+          "drill": "Play extended sets with deliberately long rallies, checking your decision quality in the final five points.",
+          "match": "Use your reliability tactically — extend rallies against opponents whose level drops, and let them make the errors."
+        }
+      }
+    }
+  ]
+}
