@@ -1,6 +1,6 @@
 {
-  "name": "Kernow Pickleball Rating Level Assessment",
-  "short_name": "Kernow Rating",
+  "name": "KernowRate",
+  "short_name": "KernowRate",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
